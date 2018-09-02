@@ -1,0 +1,7 @@
+################### Sysusage Configuration Example #########################
+
+############################# Sysusage ######################################
+
+sysusage:
+  # Defines how often an event is sent to the output
+  period: 1s
