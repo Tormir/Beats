@@ -31,7 +31,7 @@ def Linux() :
                                                                          ', "COMMAND":"' + ' '.join(json.loads(json.dumps(proces))[x].split()[10:]) + '"' + \
                                                                          '}'
 
-    with open('metrics.json', 'w') as f:
+    with open('lib/metrics.json', 'w') as f:
         for i in command:
             f.write(data.get(i) + '\n')
 
