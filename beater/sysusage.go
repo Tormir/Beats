@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"encoding/json"
 	"io/ioutil"
-	"syscall"
+//	"syscall"
 //	"strconv"
 
 //	"github.com/kr/pty"
@@ -62,21 +62,14 @@ func (bt *SysUsageBeat) readSysUsageData(path string) (SysUsageData, error) {
 	return sysusageData, err
 	}
 
-	command := exec.Command("python", dir + "/lib/sysusage.py")
-	command.SysProcAttr = &syscall.SysProcAttr{Setctty: true}
-	err = command.Start()
+
+	command := exec.Command("python3", "lib/sysusage.py", "-C", "nautilus-desktop")
+	err = command.Run()
 	if err != nil {
-		return sysusageData, err
+                return sysusageData, err 
         }
 
-//	command := exec.Command("python3", "/home/km/go/src/github.com/KM/sysusage/lib/sysusage.py", "-C", "nautilus-desktop")
-//	err = command.Run()
-//	if err != nil {
-//                return sysusageData, err 
-//        }
-
-
-	raw, err := ioutil.ReadFile(dir + "/lib/metrics.json")
+	raw, err := ioutil.ReadFile(dir + "lib/metrics.json")
 	if err != nil {
 		return sysusageData, err 
 	}
