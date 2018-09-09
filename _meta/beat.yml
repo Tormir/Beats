@@ -5,4 +5,4 @@
 sysusage:
   # Defines how often an event is sent to the output
   period: 1s
-  command: "ps aux"
+  cmd: "ps aux"

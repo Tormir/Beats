@@ -54,7 +54,7 @@ func New(b *beat.Beat, cfg *common.Config) (beat.Beater, error) {
 	return bt, nil
 }
 
-func (bt *SysUsageBeat) readSysUsageData(path string) (SysUsageData, error) {
+func (bt *SysUsageBeat) readSysUsageData(cmd string) (SysUsageData, error) {
 	sysusageData := SysUsageData{}
 
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
@@ -62,7 +62,7 @@ func (bt *SysUsageBeat) readSysUsageData(path string) (SysUsageData, error) {
 	return sysusageData, err
 	}
 
-	command := exec.Command("python3", dir + "/lib/sysusage.py", "-C", path)
+	command := exec.Command("python3", dir + "/lib/sysusage.py", "-C", cmd)
 	err = command.Run()
 	if err != nil {
                 return sysusageData, err 
@@ -98,7 +98,7 @@ func (bt *SysUsageBeat) Run(b *beat.Beat) error {
 		case <-ticker.C:
 		}
 
-		s := strings.Split(bt.config.Path, ":::")
+		s := strings.Split(bt.config.Command, ":::")
 
 		for i := 0; i < len(s); i++ {
 		sysusageData, err := bt.readSysUsageData(s[i])

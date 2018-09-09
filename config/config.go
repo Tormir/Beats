@@ -7,7 +7,7 @@ import "time"
 
 type Config struct {
 	Period time.Duration `config:"period"`
-	Command   string        `config:"command"`
+	Command   string        `config:"cmd"`
 }
 
 var DefaultConfig = Config{
