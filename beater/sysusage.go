@@ -98,7 +98,7 @@ func (bt *SysUsageBeat) Run(b *beat.Beat) error {
 		case <-ticker.C:
 		}
 
-		s := strings.Split(bt.config.Command, ":::")
+		s := strings.Split(bt.config.Cmd, ":::")
 
 		for i := 0; i < len(s); i++ {
 		sysusageData, err := bt.readSysUsageData(s[i])
