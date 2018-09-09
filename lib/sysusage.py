@@ -15,7 +15,7 @@ def Linux() :
     parser = Parser()
     command = parser.C.split(":::")
     data = {}
-
+    CommandData = {}
     proces = subprocess.run(['ps', 'aux'], stdout=subprocess.PIPE).stdout.decode("utf-8").splitlines()
     for x in range(len(json.loads(json.dumps(proces)))):
         data[' '.join(json.loads(json.dumps(proces))[x].split()[10:])] = '{"USER":"' + json.loads(json.dumps(proces))[x].split()[0] + '"' + \
@@ -34,7 +34,6 @@ def Linux() :
     with open('lib/metrics.json', 'w') as f:
         for i in command:
             f.write(data.get(i) + '\n')
-
 
 if __name__ == '__main__':
     Linux()

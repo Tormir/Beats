@@ -1,18 +1,64 @@
-2018-09-05T20:25:53.416+0200	INFO	instance/beat.go:545	Home path: [/home/km/go/src/github.com/KM/sysusage] Config path: [/home/km/go/src/github.com/KM/sysusage] Data path: [/home/km/go/src/github.com/KM/sysusage/data] Logs path: [/home/km/go/src/github.com/KM/sysusage/logs]
-2018-09-05T20:25:53.417+0200	INFO	instance/beat.go:552	Beat UUID: fc0f7efb-2419-4a8a-b33f-f2bbfcfd8280
-2018-09-05T20:25:53.417+0200	INFO	[seccomp]	seccomp/seccomp.go:116	Syscall filter successfully installed
-2018-09-05T20:25:53.417+0200	INFO	[beat]	instance/beat.go:768	Beat info	{"system_info": {"beat": {"path": {"config": "/home/km/go/src/github.com/KM/sysusage", "data": "/home/km/go/src/github.com/KM/sysusage/data", "home": "/home/km/go/src/github.com/KM/sysusage", "logs": "/home/km/go/src/github.com/KM/sysusage/logs"}, "type": "sysusage", "uuid": "fc0f7efb-2419-4a8a-b33f-f2bbfcfd8280"}}}
-2018-09-05T20:25:53.417+0200	INFO	[beat]	instance/beat.go:777	Build info	{"system_info": {"build": {"commit": "8272975ea917862eeb7676801b3957c935a91b81", "libbeat": "7.0.0-alpha1", "time": "2018-09-05T18:25:02.000Z", "version": "7.0.0-alpha1"}}}
-2018-09-05T20:25:53.417+0200	INFO	[beat]	instance/beat.go:780	Go runtime info	{"system_info": {"go": {"os":"linux","arch":"amd64","max_procs":4,"version":"go1.10.3"}}}
-2018-09-05T20:25:53.421+0200	INFO	[beat]	instance/beat.go:784	Host info	{"system_info": {"host": {"architecture":"x86_64","boot_time":"2018-09-05T17:38:50+02:00","containerized":false,"hostname":"smok","ips":["127.0.0.1/8","::1/128","192.168.43.229/24","fe80::9ad9:8ec4:3209:717/64","192.168.100.1/24","192.168.101.1/24"],"kernel_version":"4.15.0-33-generic","mac_addresses":["54:e1:ad:90:58:a7","74:da:38:af:fe:fc","52:54:00:e7:2f:56","52:54:00:e7:2f:56","52:54:00:a9:e5:ce","52:54:00:a9:e5:ce"],"os":{"family":"debian","platform":"ubuntu","name":"Ubuntu","version":"18.04.1 LTS (Bionic Beaver)","major":18,"minor":4,"patch":1,"codename":"bionic"},"timezone":"CEST","timezone_offset_sec":7200,"id":"36f859cc8ee24d539b3643dda953ac93"}}}
-2018-09-05T20:25:53.422+0200	INFO	[beat]	instance/beat.go:813	Process info	{"system_info": {"process": {"capabilities": {"inheritable":null,"permitted":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read"],"effective":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read"],"bounding":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read"],"ambient":null}, "cwd": "/home/km/go/src/github.com/KM/sysusage", "exe": "/home/km/go/src/github.com/KM/sysusage/sysusage", "name": "sysusage", "pid": 29297, "ppid": 28765, "seccomp": {"mode":"filter","no_new_privs":true}, "start_time": "2018-09-05T20:25:52.530+0200"}}}
-2018-09-05T20:25:53.422+0200	INFO	instance/beat.go:274	Setup Beat: sysusage; Version: 7.0.0-alpha1
-2018-09-05T20:25:53.422+0200	INFO	elasticsearch/client.go:163	Elasticsearch url: http://localhost:9200
-2018-09-05T20:25:53.422+0200	INFO	pipeline/module.go:98	Beat name: smok
-2018-09-05T20:25:53.423+0200	INFO	instance/beat.go:368	sysusage start running.
-2018-09-05T20:25:53.423+0200	INFO	beater/sysusage.go:94	SysUsageBeat is running! Hit CTRL-C to stop it.
-2018-09-05T20:25:53.423+0200	INFO	[monitoring]	log/log.go:114	Starting metrics logging every 30s
-2018-09-05T20:25:54.426+0200	INFO	[monitoring]	log/log.go:149	Total non-zero metrics	{"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":0,"time":{"ms":4}},"total":{"ticks":20,"time":{"ms":31},"value":20},"user":{"ticks":20,"time":{"ms":27}}},"info":{"ephemeral_id":"01e9ea68-6396-44a7-8943-f8ff8ff2cfb1","uptime":{"ms":1018}},"memstats":{"gc_next":4194304,"memory_alloc":1777752,"memory_total":3538960,"rss":21839872}},"libbeat":{"config":{"module":{"running":0}},"output":{"type":"elasticsearch"},"pipeline":{"clients":1,"events":{"active":0}}},"system":{"cpu":{"cores":4},"load":{"1":0.75,"15":1.1,"5":0.99,"norm":{"1":0.1875,"15":0.275,"5":0.2475}}}}}}
-2018-09-05T20:25:54.426+0200	INFO	[monitoring]	log/log.go:150	Uptime: 1.020938604s
-2018-09-05T20:25:54.426+0200	INFO	[monitoring]	log/log.go:127	Stopping metrics logging.
-2018-09-05T20:25:54.426+0200	INFO	instance/beat.go:374	sysusage stopped.
+2018-09-08T12:08:58.031+0200	INFO	instance/beat.go:559	Home path: [/home/km/go/src/github.com/KM/sysusage] Config path: [/home/km/go/src/github.com/KM/sysusage] Data path: [/home/km/go/src/github.com/KM/sysusage/data] Logs path: [/home/km/go/src/github.com/KM/sysusage/logs]
+2018-09-08T12:08:58.032+0200	INFO	instance/beat.go:566	Beat UUID: fc0f7efb-2419-4a8a-b33f-f2bbfcfd8280
+2018-09-08T12:08:58.033+0200	INFO	[beat]	instance/beat.go:782	Beat info	{"system_info": {"beat": {"path": {"config": "/home/km/go/src/github.com/KM/sysusage", "data": "/home/km/go/src/github.com/KM/sysusage/data", "home": "/home/km/go/src/github.com/KM/sysusage", "logs": "/home/km/go/src/github.com/KM/sysusage/logs"}, "type": "sysusage", "uuid": "fc0f7efb-2419-4a8a-b33f-f2bbfcfd8280"}}}
+2018-09-08T12:08:58.033+0200	INFO	[beat]	instance/beat.go:791	Build info	{"system_info": {"build": {"commit": "a086b8fd3e424eee7739a3872ad9d90d57873dae", "libbeat": "7.0.0-alpha1", "time": "2018-09-08T09:54:43.000Z", "version": "7.0.0-alpha1"}}}
+2018-09-08T12:08:58.033+0200	INFO	[beat]	instance/beat.go:794	Go runtime info	{"system_info": {"go": {"os":"linux","arch":"amd64","max_procs":4,"version":"go1.10.3"}}}
+2018-09-08T12:08:58.034+0200	INFO	[beat]	instance/beat.go:798	Host info	{"system_info": {"host": {"architecture":"x86_64","boot_time":"2018-09-08T11:20:45+02:00","containerized":false,"hostname":"smok","ips":["127.0.0.1/8","::1/128","172.16.253.53/16","fe80::84c7:e015:d1f6:950c/64","192.168.100.1/24","192.168.101.1/24"],"kernel_version":"4.15.0-33-generic","mac_addresses":["54:e1:ad:90:58:a7","74:da:38:af:fe:fc","52:54:00:e7:2f:56","52:54:00:e7:2f:56","52:54:00:a9:e5:ce","52:54:00:a9:e5:ce"],"os":{"family":"debian","platform":"ubuntu","name":"Ubuntu","version":"18.04.1 LTS (Bionic Beaver)","major":18,"minor":4,"patch":1,"codename":"bionic"},"timezone":"CEST","timezone_offset_sec":7200,"id":"36f859cc8ee24d539b3643dda953ac93"}}}
+2018-09-08T12:08:58.035+0200	INFO	[beat]	instance/beat.go:827	Process info	{"system_info": {"process": {"capabilities": {"inheritable":null,"permitted":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read"],"effective":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read"],"bounding":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read"],"ambient":null}, "cwd": "/home/km/go/src/github.com/KM/sysusage", "exe": "/home/km/go/src/github.com/KM/sysusage/sysusage", "name": "sysusage", "pid": 5954, "ppid": 3751, "seccomp": {"mode":"disabled","no_new_privs":false}, "start_time": "2018-09-08T12:08:57.400+0200"}}}
+2018-09-08T12:08:58.035+0200	INFO	instance/beat.go:278	Setup Beat: sysusage; Version: 7.0.0-alpha1
+2018-09-08T12:08:58.035+0200	INFO	elasticsearch/client.go:164	Elasticsearch url: http://localhost:9200
+2018-09-08T12:08:58.035+0200	INFO	[publisher]	pipeline/module.go:111	Beat name: %ssmok
+2018-09-08T12:08:58.036+0200	INFO	[monitoring]	log/log.go:117	Starting metrics logging every 30s
+2018-09-08T12:08:58.036+0200	INFO	instance/beat.go:382	sysusage start running.
+2018-09-08T12:08:58.036+0200	INFO	beater/sysusage.go:86	SysUsageBeat is running! Hit CTRL-C to stop it.
+2018-09-08T12:08:59.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:00.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:00.036+0200	INFO	pipeline/output.go:95	Connecting to backoff(elasticsearch(http://localhost:9200))
+2018-09-08T12:09:00.067+0200	INFO	elasticsearch/client.go:718	Connected to Elasticsearch version 6.4.0
+2018-09-08T12:09:00.073+0200	INFO	template/load.go:129	Template already exists and will not be overwritten.
+2018-09-08T12:09:00.073+0200	INFO	pipeline/output.go:105	Connection to backoff(elasticsearch(http://localhost:9200)) established
+2018-09-08T12:09:01.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:02.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:03.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:04.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:05.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:06.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:07.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:08.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:09.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:10.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:11.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:12.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:13.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:14.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:15.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:16.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:17.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:18.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:19.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:20.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:21.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:22.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:23.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:24.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:25.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:26.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:27.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:28.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:28.038+0200	INFO	[monitoring]	log/log.go:144	Non-zero metrics in the last 30s	{"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":10,"time":{"ms":15}},"total":{"ticks":60,"time":{"ms":71},"value":60},"user":{"ticks":50,"time":{"ms":56}}},"fd":{"limit":{"hard":1048576,"soft":1024},"open":7},"info":{"ephemeral_id":"a6efe427-3f53-49b4-af31-721b928500b8","uptime":{"ms":30015}},"memstats":{"gc_next":4194304,"memory_alloc":2110248,"memory_total":7178568,"rss":23252992}},"libbeat":{"config":{"module":{"running":0}},"output":{"events":{"acked":29,"batches":15,"total":29},"read":{"bytes":5975},"type":"elasticsearch","write":{"bytes":12398}},"pipeline":{"clients":1,"events":{"active":1,"published":30,"retry":2,"total":30},"queue":{"acked":29}}},"system":{"cpu":{"cores":4},"load":{"1":2.17,"15":0.84,"5":1.18,"norm":{"1":0.5425,"15":0.21,"5":0.295}}}}}}
+2018-09-08T12:09:29.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:30.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:31.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:32.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:33.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:34.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:35.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:36.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:37.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:38.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:39.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:40.036+0200	INFO	beater/sysusage.go:133	Event sent
+2018-09-08T12:09:40.635+0200	INFO	[monitoring]	log/log.go:152	Total non-zero metrics	{"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":10,"time":{"ms":18}},"total":{"ticks":80,"time":{"ms":92},"value":80},"user":{"ticks":70,"time":{"ms":74}}},"fd":{"limit":{"hard":1048576,"soft":1024},"open":7},"info":{"ephemeral_id":"a6efe427-3f53-49b4-af31-721b928500b8","uptime":{"ms":42612}},"memstats":{"gc_next":4194304,"memory_alloc":1856056,"memory_total":8886440,"rss":23252992}},"libbeat":{"config":{"module":{"running":0}},"output":{"events":{"acked":41,"batches":21,"total":41},"read":{"bytes":8051},"type":"elasticsearch","write":{"bytes":17384}},"pipeline":{"clients":0,"events":{"active":1,"published":42,"retry":2,"total":42},"queue":{"acked":41}}},"system":{"cpu":{"cores":4},"load":{"1":2.06,"15":0.85,"5":1.19,"norm":{"1":0.515,"15":0.2125,"5":0.2975}}}}}}
+2018-09-08T12:09:40.635+0200	INFO	[monitoring]	log/log.go:153	Uptime: 42.615154483s
+2018-09-08T12:09:40.635+0200	INFO	[monitoring]	log/log.go:130	Stopping metrics logging.
+2018-09-08T12:09:40.636+0200	INFO	instance/beat.go:388	sysusage stopped.

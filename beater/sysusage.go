@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"encoding/json"
 	"io/ioutil"
+	"strings"
 //	"syscall"
-//	"strconv"
 
 //	"github.com/kr/pty"
 	"github.com/elastic/beats/libbeat/beat"
@@ -62,14 +62,13 @@ func (bt *SysUsageBeat) readSysUsageData(path string) (SysUsageData, error) {
 	return sysusageData, err
 	}
 
-
-	command := exec.Command("python3", "lib/sysusage.py", "-C", "nautilus-desktop")
+	command := exec.Command("python3", dir + "/lib/sysusage.py", "-C", path)
 	err = command.Run()
 	if err != nil {
                 return sysusageData, err 
         }
 
-	raw, err := ioutil.ReadFile(dir + "lib/metrics.json")
+	raw, err := ioutil.ReadFile(dir + "/lib/metrics.json")
 	if err != nil {
 		return sysusageData, err 
 	}
@@ -99,38 +98,34 @@ func (bt *SysUsageBeat) Run(b *beat.Beat) error {
 		case <-ticker.C:
 		}
 
-		sysusageData, err := bt.readSysUsageData(bt.config.Path)
+		s := strings.Split(bt.config.Path, ":::")
 
+		for i := 0; i < len(s); i++ {
+		sysusageData, err := bt.readSysUsageData(s[i])
 		if err != nil {
-			fmt.Println(err)
-			return nil
+                      fmt.Println(err)
+                      return nil
+                }
+			event := beat.Event{
+				Timestamp: time.Now(),
+				Fields: common.MapStr{
+					"type":    b.Info.Name,
+					"user":    sysusageData.User,
+					"pid":     sysusageData.Pid,
+					"cpu":     sysusageData.Cpu,
+					"mem":     sysusageData.Mem,
+					"vsz":     sysusageData.Vsz,
+					"rss":     sysusageData.Rss,
+					"tty":     sysusageData.Tty,
+					"stat":    sysusageData.Stat,
+					"start":   sysusageData.Start,
+					"time":    sysusageData.Time,
+					"command": sysusageData.Command,
+				},
+			}
+			bt.client.Publish(event)
+			logp.Info("Event sent")
 		}
-
-//		Pid, _ := strconv.ParseInt(sysusageData.Pid, 0, 64)
-//		Cpu, _ := strconv.ParseFloat(sysusageData.Cpu, 64)
-//		Mem, _ := strconv.ParseFloat(sysusageData.Mem, 64)
-//		Vsz, _ := strconv.ParseInt(sysusageData.Vsz, 0, 64)
-//		Rss, _ := strconv.ParseInt(sysusageData.Rss, 0, 64)
-
-		event := beat.Event{
-			Timestamp: time.Now(),
-			Fields: common.MapStr{
-				"type":    b.Info.Name,
-				"user":    sysusageData.User,
-				"pid":     sysusageData.Pid,
-				"cpu":     sysusageData.Cpu,
-				"mem":     sysusageData.Mem,
-				"vsz":     sysusageData.Vsz,
-				"rss":     sysusageData.Rss,
-				"tty":     sysusageData.Tty,
-				"stat":    sysusageData.Stat,
-				"start":   sysusageData.Start,
-				"time":    sysusageData.Time,
-				"command": sysusageData.Command,
-			},
-		}
-		bt.client.Publish(event)
-		logp.Info("Event sent")
 	}
 }
 
