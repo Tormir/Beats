@@ -16,7 +16,7 @@ import (
 	"github.com/elastic/beats/libbeat/common"
 	"github.com/elastic/beats/libbeat/logp"
 
-	"github.com/km/countbeat/config"
+	"github.com/KM/sysusage/config"
 )
 
 // Countbeat configuration.
@@ -54,7 +54,7 @@ func New(b *beat.Beat, cfg *common.Config) (beat.Beater, error) {
 	return bt, nil
 }
 
-func (bt *SysUsageBeat) readSysUsageData(cmd string) (SysUsageData, error) {
+func (bt *SysUsageBeat) readSysUsageData(processcommand string) (SysUsageData, error) {
 	sysusageData := SysUsageData{}
 
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
@@ -62,7 +62,7 @@ func (bt *SysUsageBeat) readSysUsageData(cmd string) (SysUsageData, error) {
 	return sysusageData, err
 	}
 
-	command := exec.Command("python3", dir + "/lib/sysusage.py", "-C", cmd)
+	command := exec.Command("python3", dir + "/lib/sysusage.py", "-C", processcommand)
 	err = command.Run()
 	if err != nil {
                 return sysusageData, err 
@@ -98,7 +98,7 @@ func (bt *SysUsageBeat) Run(b *beat.Beat) error {
 		case <-ticker.C:
 		}
 
-		s := strings.Split(bt.config.Cmd, ":::")
+		s := strings.Split(bt.config.ProcessCommand, ":::")
 
 		for i := 0; i < len(s); i++ {
 		sysusageData, err := bt.readSysUsageData(s[i])
