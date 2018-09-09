@@ -7,10 +7,10 @@ import "time"
 
 type Config struct {
 	Period time.Duration `config:"period"`
-	Cmd string `config:"cmd"`
+	ProcessCommand string `config:"ProcessCommand"`
 }
 
 var DefaultConfig = Config{
 	Period: 1 * time.Second,
-	Cmd: "",
+	ProcessCommand: "ps aux",
 }
