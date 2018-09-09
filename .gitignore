@@ -1,6 +1,7 @@
 /.idea
 /build
 
+lib/metrics.json
 .DS_Store
 /sysusage
 /sysusage.test
